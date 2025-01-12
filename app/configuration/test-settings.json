@@ -1,0 +1,10 @@
+{
+  "environment": "dev",
+  "is_kv_config": false,
+  "browser": "chrome",
+  "is_headless_browser": true,
+  "driver_executable_path": "/usr/local/bin/chromedriver",
+  "driver_timeout": "5",
+  "wait_time": "5",
+  "autoretry_attempts": "1"
+}
