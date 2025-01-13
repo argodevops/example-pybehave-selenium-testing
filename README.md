@@ -1,5 +1,5 @@
 # example-selenium-testing
-Example repository demonstrating running selenium tests using [Pybehave Selenium](https://github.com/argodevops/pybehave-selenium-test-framework) Test Framework.
+Example repository demonstrating running selenium tests using [Pybehave Selenium Test Framework](https://github.com/argodevops/pybehave-selenium-test-framework).
 
 ## Installation
 
@@ -11,7 +11,12 @@ pip install pybehave-selenium-test-framework
 
 ## Environment Variables and Configuration Files
 
-Create a configuration folder and add settings and configuration files. Then define environment variables in a `.env` pointing to the files.
+Create a configuration folder to add a **settings** and **configuration** file. A `.env` file can be used to source the settings and configuration environment variables.
+
+```
+export SETTINGS_FILE_PATH="${PWD}/app/configuration/test-settings.json"
+export CONFIG="${PWD}/app/configuration/app-config.json"
+```
 
 ### Settings Files
 
@@ -32,6 +37,12 @@ The `SETTINGS_FILE_PATH` env variable defines the application settings file to u
 ### Configuration File
 
 The `CONFIG` env variable defines the application configuration file to use. This file contains properties specific to testing an application.
+```
+{
+    "rest_api_token_url": "https://www.boredapi.com/api/activity",
+    "rest_api_token_key": "uuskjfdnnds77dsjjkds;lcmmmcm-da8ghasb;s="
+}
+```
 
 ## Code Structure
 
@@ -50,3 +61,14 @@ The `app` directory contains the main codebase, structured as follows:
 
 Step definitions in `features/steps` back the Gherkin features and provide an entry point into the test business logic.
 
+## Running the Tests
+
+To run the example test.
+
+```
+behave app/features/example/login.feature
+```
+
+## Webdriver
+
+You will need to maintain the correct version of the required webdriver for selenium to use. It is defined in the app-settings.json file and by default uses the chrome driver at `/usr/local/bin/chromedriver`.
